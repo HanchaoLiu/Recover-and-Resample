@@ -59,7 +59,7 @@ Perform boundary pose clustering and linear transform clustering.
 sh scripts/do_clustering_T.sh
 ```
 
-The clustering results will be saved to `./data/cluster_result` and will be used by our recovering stage.
+The clustering results will be saved to `./data/cluster_result` and will be used by our recovering stage. We also provide the necessary cluster result files under `./data/cluster_result`.
 
 ## Training and testing
 
