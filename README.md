@@ -51,6 +51,11 @@ data
         |--pku   
 ```
 
+Create directories to save training results.
+```
+mkdir -p workdir/ws
+mkdir -p workdir/result
+```
 
 
 ## Boundary pose and linear transform clustering

@@ -1030,6 +1030,21 @@ class Processor():
             with open(save_name, "w") as f:
                 f.write(result_str+"\n")
 
+            # + save best model
+            best_model_name = os.path.join(self.arg.work_dir, 'model_ep{}.pt'.format(best_test_idx))
+            best_model_name_save = os.path.join(self.arg.work_dir, 'model_epbest.pt')
+            shutil.copy(best_model_name, best_model_name_save)
+
+            print("model save to:", best_model_name_save)
+
+
+
+            # + save best model with best@val_idx, 1101 new add.
+            best_model_name = os.path.join(self.arg.work_dir, 'model_ep{}.pt'.format(best_val_idx))
+            best_model_name_save = os.path.join(self.arg.work_dir, 'model_epbest_atval.pt')
+            shutil.copy(best_model_name, best_model_name_save)
+            print("best@val model save to:", best_model_name_save)
+
         dt = {
                 'best_val_acc': best_val_acc,
                 'best_val_idx': best_val_idx,
