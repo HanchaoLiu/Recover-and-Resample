@@ -1,0 +1,8 @@
+pyyaml
+tqdm
+tensorboardX
+networkx
+scipy
+opencv-python
+pandas==0.20
+scikit-learn==1.0

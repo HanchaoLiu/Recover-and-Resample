@@ -1,0 +1,82 @@
+seed: 0
+work_dir: a0919_etri18_a2e_consis_aug_seed0
+
+
+
+
+# feeder
+train_feeder: feeders.feeder_dg.Feeder_rot
+train_feeder_name: xxx
+train_feeder_args:
+  data_path:    data220919/common18_d3/xsub64/xxx/train_data_joint.npy
+  label_path:   data220919/common18_d3/xsub64/xxx/train_label.pkl
+  data_path_2:  data220919/common18_d3/xsub64/xxx/train_data_joint.npy
+  label_path_2: data220919/common18_d3/xsub64/xxx/train_label.pkl
+  debug: False
+  random_choose: False
+  random_shift: False
+  random_move: False
+  window_size: -1
+  normalization: False
+  theta: 30
+  num_person: 2
+
+val_feeder: feeders.feeder.Feeder
+val_feeder_name: yyy
+val_feeder_args:
+  data_path:  data220919/common18_d3/xsub64/yyy/test_data_joint.npy
+  label_path: data220919/common18_d3/xsub64/yyy/test_label.pkl
+
+
+test_feeder: feeders.feeder.Feeder
+test_feeder_name: zzz
+test_feeder_args:
+  data_path:  data220919/common18_d3/xsub64/zzz/test_data_joint.npy
+  label_path: data220919/common18_d3/xsub64/zzz/test_label.pkl
+
+# model
+model: nets.agcn.agcn.Model_thin
+model_args:
+  num_class: 18
+  num_point: 25
+  num_person: 2
+  graph: nets.agcn.graph.ntu_rgb_d.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+
+model_prior: ae.st_gcn_ae.AE
+model_prior_args:
+  in_channels: 3
+  hidden_channels: 16
+  num_class: 60
+  graph_args:
+    layout: 'ntu-rgb+d'
+    strategy: 'spatial'
+  edge_importance_weighting: True
+  seqlen: 64  
+
+
+#optim
+weight_decay: 0.0001
+base_lr: 0.1
+step: [30, 40]
+num_epoch: 50
+
+# training
+device: 0
+batch_size: 64
+test_batch_size: 64
+nesterov: True
+
+save_interval: 1
+eval_interval: 1
+
+num_worker: 1 
+
+weight_aug: 0.0
+weight_dst: 0.0
+
+use_aug: 0
+use_val: 1
+
