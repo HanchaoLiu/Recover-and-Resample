@@ -3,7 +3,7 @@
 
 This is the code for the paper "Recovering Complete Actions for Cross-dataset Skeleton Action Recognition" (NeurIPS 2024).
 
-[**paper**](), [**arxiv**]()
+[**paper**](), [**arxiv**](https://arxiv.org/abs/2410.23641)
 
 [**jittor implementation**]()
 
